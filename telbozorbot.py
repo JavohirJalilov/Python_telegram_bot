@@ -1,8 +1,8 @@
 from telegram.ext import Updater, CommandHandler,MessageHandler,Filters
-from telegram import keyboardbutton, InlineKeyboardButton, InlineKeyboardMarkup,ReplyKeyboardMarkup,replykeyboardmarkup,ReplyMarkup,replymarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup,ReplyKeyboardMarkup,ReplyMarkup
 import telegram
 def hello(update, context):
-   
+    print(1)
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
@@ -21,117 +21,150 @@ def hello(update, context):
     rn9 = '''Model: Redmi note 9 \nGPU: Mali-G71 MP20 \nOrqa kamera: 48+8+5+2 MP \nOld kamera: 13 MP \nROM: 64 GB \nRAM: 3GB \nBatareka: 5020 mAh \nTezkor quvvatlash: 18W'''
     rn9p = '''Model: Redmi note 9 pro S8+ \nQualcomm Snapdragon 720G \nOrqa kamera: 64+8+5+2 MP \nOld kamera: 16 MP \nROM: 128 GB \nRAM: 6GB \nBatareka: 5260mAh \nTezkor quvvatlash: 18W'''
 
-    button = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ['Samsung'],
-        ['Xiomi']
+    button = ReplyKeyboardMarkup(
+        [
+            ['Samsung'],
+            ['Xiomi']
 
-    ],resize_keyboard=True)
+        ],
+        resize_keyboard=True)
     
-    Samsung_tur = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ['Samsung Galaxy S Turlari va Xususiyatlari'],
-        ['Samsung Galaxy A Turlari va Xususiyatlari'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    Samsung_tur = ReplyKeyboardMarkup(  
+        [
+            ['Samsung Galaxy S Turlari va Xususiyatlari'],
+            ['Samsung Galaxy A Turlari va Xususiyatlari'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    Samsung_S = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ['Samsung Galaxy S8','Samsung Galaxy S8+'],
-        ['Samsung Galaxy S9','Samsung Galaxy S9+'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    Samsung_S = ReplyKeyboardMarkup(
+        [
+            ['Samsung Galaxy S8','Samsung Galaxy S8+'],
+            ['Samsung Galaxy S9','Samsung Galaxy S9+'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    Samsung_A = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ['Samsung Galaxy A10','Samsung Galaxy A10s'],
-        ['Samsung Galaxy A20','Samsung Galaxy A20s'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    Samsung_A = ReplyKeyboardMarkup(
+        [
+            ['Samsung Galaxy A10','Samsung Galaxy A10s'],
+            ['Samsung Galaxy A20','Samsung Galaxy A20s'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    Xiomi = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ['Redmi note 8','Redmi note 8 pro'],
-        ['Redmi note 9','Redmi note 9 pro'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    Xiomi = ReplyKeyboardMarkup(
+        [
+            ['Redmi note 8','Redmi note 8 pro'],
+            ['Redmi note 9','Redmi note 9 pro'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    SG_8 = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy S'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_8 = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy S'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
     
-    SG_8p = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy S'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_8p = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy S'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
     
-    SG_9 = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy S'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_9 = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy S'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
     
-    SG_9p = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy S'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_9p = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy S'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
     
-    SG_10 = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy A'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_10 = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy A'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
     
-    SG_10s = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy A'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_10s = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy A'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    SG_20 = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy A'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_20 = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy A'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    SG_20s = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Samsung Galaxy A'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    SG_20s = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Samsung Galaxy A'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    Rn8 = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Xiomi'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    Rn8 = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Xiomi'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    Rn8p = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Xiomi'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
-    Rn9 = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Xiomi'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    Rn8p = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Xiomi'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
+    Rn9 = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Xiomi'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    Rn9p = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Buyurtma berish"],
-        ['Orqaga: Xiomi'],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    Rn9p = ReplyKeyboardMarkup(
+        [
+            ["Buyurtma berish"],
+            ['Orqaga: Xiomi'],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
 
-    admin = replykeyboardmarkup.ReplyKeyboardMarkup([
-        ["Admin bilan bog`lanish"],
-        ['Bosh Menuga qaytish']
-    ],resize_keyboard=True)
+    admin = ReplyKeyboardMarkup(
+        [
+            ["Admin bilan bog`lanish"],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True)
     
     if text == 'Samsung':
         bot.sendMessage(chat_id,text='Tanlang 👇🏻',reply_markup=Samsung_tur)
-
-    elif text == '/start':
-        bot.sendMessage(chat_id,text='Telefon bozoriga hush kelibsiz! Turini tanlang: Samsung, Xiomi 👇🏻',reply_markup=button)
 
     elif text == 'Bosh Menuga qaytish':
         bot.sendMessage(chat_id,text='Telefon bozoriga hush kelibsiz! Turini tanlang: Samsung, Xiomi 👇🏻',reply_markup=button)
@@ -196,10 +229,25 @@ def hello(update, context):
     elif text == "Admin bilan bog`lanish":
         bot.sendMessage(chat_id,text='https://t.me/JalilovJavohir',reply_markup=admin)
 
-    
+def start(update,context):
 
+    bot = context.bot
+    text = update.message.text
+    chat_id = update.message.chat.id
+
+    button = ReplyKeyboardMarkup(
+        [
+            ['Samsung'],
+            ['Xiomi']
+        ],
+        resize_keyboard=True)
+
+    bot.sendMessage(chat_id,text='Telefon bozoriga hush kelibsiz! Turini tanlang: Samsung, Xiomi 👇🏻',reply_markup=button)
+    
+    
 updater = Updater(token='1114424170:AAHakbVTr7nzgj6hOTSr9OrhTyaaLkunmd8',use_context=True)
 
+updater.dispatcher.add_handler(CommandHandler('start',start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text,hello))
 
 updater.start_polling()
