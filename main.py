@@ -30,7 +30,7 @@ def hello(update, context):
         resize_keyboard=True
     )
 
-    bot.sendMessage(chat_id,text = text,reply_markup=keyboard)
+    bot.sendMessage(chat_id,text = 'Contact va locatin kiriting!',reply_markup=keyboard)
 
 def start(update,context):
 
@@ -56,7 +56,7 @@ def start(update,context):
         resize_keyboard=True
     )
 
-    bot.sendMessage(chat_id,text="contact yuborish",reply_markup=keyboard)
+    bot.sendMessage(chat_id,text="Contact and location",reply_markup=keyboard)
 
 def get_contact(update,context):
     bot= context.bot 
@@ -65,22 +65,17 @@ def get_contact(update,context):
 
     contact = update.message.contact.phone_number
     firstname = update.message.contact.first_name
-    Number = firstname+"\n"+contact
-    print(Number)
-
-    f = open('text.txt','w')
-    f.write(Number+'\n')
-    f.close()
+    
+    bot.sendContact(1046157991,phone_number= contact,first_name=firstname)
 
 def get_location(update,context):
     bot= context.bot 
     chat_id = update.message.chat.id 
     text = update.message.text 
 
-    l1 = update.message.location.longitude
-    l2 = update.message.location.latitude
-    s = str(l2)+','+str(l1)
-    print(s)
+    location = update.message.location
+    
+    bot.sendLocation(1046157991,location=location)
 
 updater = Updater(token=TOKEN,use_context=True)
 
