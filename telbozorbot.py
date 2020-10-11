@@ -1,6 +1,7 @@
 from telegram.ext import Updater, CommandHandler,MessageHandler,Filters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup,ReplyKeyboardMarkup,ReplyMarkup,KeyboardButton
 import telegram
+
 def hello(update, context):
     print(1)
     bot = context.bot
@@ -35,7 +36,8 @@ def hello(update, context):
             ['Samsung Galaxy A Turlari va Xususiyatlari'],
             ['Bosh Menuga qaytish']
         ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
 
     Samsung_S = ReplyKeyboardMarkup(
         [
@@ -43,7 +45,8 @@ def hello(update, context):
             ['Samsung Galaxy S9','Samsung Galaxy S9+'],
             ['Bosh Menuga qaytish']
         ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
 
     Samsung_A = ReplyKeyboardMarkup(
         [
@@ -51,7 +54,8 @@ def hello(update, context):
             ['Samsung Galaxy A20','Samsung Galaxy A20s'],
             ['Bosh Menuga qaytish']
         ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
 
     Xiomi = ReplyKeyboardMarkup(
         [
@@ -59,102 +63,35 @@ def hello(update, context):
             ['Redmi note 9','Redmi note 9 pro'],
             ['Bosh Menuga qaytish']
         ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
 
-    SG_8 = ReplyKeyboardMarkup(
+    SGS = ReplyKeyboardMarkup(
         [
             ["Buyurtma berish"],
             ['Orqaga: Samsung Galaxy S'],
             ['Bosh Menuga qaytish']
         ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
     
-    SG_8p = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Samsung Galaxy S'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
-    
-    SG_9 = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Samsung Galaxy S'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
-    
-    SG_9p = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Samsung Galaxy S'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
-    
-    SG_10 = ReplyKeyboardMarkup(
+    SGA = ReplyKeyboardMarkup(
         [
             ["Buyurtma berish"],
             ['Orqaga: Samsung Galaxy A'],
             ['Bosh Menuga qaytish']
         ],
-        resize_keyboard=True)
-    
-    SG_10s = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Samsung Galaxy A'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
 
-    SG_20 = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Samsung Galaxy A'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
-
-    SG_20s = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Samsung Galaxy A'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
-
-    Rn8 = ReplyKeyboardMarkup(
+    Redmi = ReplyKeyboardMarkup(
         [
             ["Buyurtma berish"],
             ['Orqaga: Xiomi'],
             ['Bosh Menuga qaytish']
         ],
-        resize_keyboard=True)
-
-    Rn8p = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Xiomi'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
-    Rn9 = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Xiomi'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
-
-    Rn9p = ReplyKeyboardMarkup(
-        [
-            ["Buyurtma berish"],
-            ['Orqaga: Xiomi'],
-            ['Bosh Menuga qaytish']
-        ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
 
     admin = ReplyKeyboardMarkup(
         [
@@ -168,6 +105,7 @@ def hello(update, context):
         text='Contact',
         request_contact=True
     )
+
     location = KeyboardButton(
         text='Location',
         request_location=True
@@ -176,8 +114,10 @@ def hello(update, context):
     keyboard = ReplyKeyboardMarkup(
         [
             [contact],
-            [location]
-        ]
+            [location],
+            ['Bosh Menuga qaytish']
+        ],
+        resize_keyboard=True
     )
 
     
@@ -185,7 +125,7 @@ def hello(update, context):
         bot.sendMessage(chat_id,text='Tanlang 👇🏻',reply_markup=Samsung_tur)
 
     elif text == 'Bosh Menuga qaytish':
-        bot.sendMessage(chat_id,text='Telefon bozoriga hush kelibsiz! Turini tanlang: Samsung, Xiomi 👇🏻',reply_markup=button)
+        bot.sendMessage(chat_id,text='Telefon bozoriga hush kelibsiz! Turini tanlang: Samsung va Xiomi 👇🏻',reply_markup=button)
         
     elif text == 'Xiomi':
         bot.sendMessage(chat_id,text='Tanlang va maqul kelsa hoziroq sotib oling! 👇🏻',reply_markup=Xiomi)
@@ -206,40 +146,40 @@ def hello(update, context):
         bot.sendMessage(chat_id,text='Tanlang va maqul kelsa hoziroq sotib oling! 👇🏻',reply_markup=Xiomi)
 
     elif text == 'Samsung Galaxy S8':
-        bot.sendMessage(chat_id,text=s8,reply_markup=SG_8)
+        bot.sendMessage(chat_id,text=s8,reply_markup=SGS)
 
     elif text == 'Samsung Galaxy S8+':
-        bot.sendMessage(chat_id,text=s8p,reply_markup=SG_8p)
+        bot.sendMessage(chat_id,text=s8p,reply_markup=SGS)
     
     elif text == 'Samsung Galaxy S9':
-        bot.sendMessage(chat_id,text=s9,reply_markup=SG_9)
+        bot.sendMessage(chat_id,text=s9,reply_markup=SGS)
     
     elif text == 'Samsung Galaxy S9+':
-        bot.sendMessage(chat_id,text=s9p,reply_markup=SG_9p)
+        bot.sendMessage(chat_id,text=s9p,reply_markup=SGS)
     
     elif text == 'Samsung Galaxy A10':
-        bot.sendMessage(chat_id,text=a10,reply_markup=SG_10)
+        bot.sendMessage(chat_id,text=a10,reply_markup=SGA)
     
     elif text == 'Samsung Galaxy A10s':
-        bot.sendMessage(chat_id,text=a10s,reply_markup=SG_10s)
+        bot.sendMessage(chat_id,text=a10s,reply_markup=SGA)
 
     elif text == 'Samsung Galaxy A20':
-        bot.sendMessage(chat_id,text=a20,reply_markup=SG_20)
+        bot.sendMessage(chat_id,text=a20,reply_markup=SGA)
     
     elif text == 'Samsung Galaxy A20s':
-        bot.sendMessage(chat_id,text=a20s,reply_markup=SG_20s)
+        bot.sendMessage(chat_id,text=a20s,reply_markup=SGA)
 
     elif text == 'Redmi note 8':
-        bot.sendMessage(chat_id,text=rn8,reply_markup=Rn8)
+        bot.sendMessage(chat_id,text=rn8,reply_markup=Redmi)
 
     elif text == 'Redmi note 8 pro':
-        bot.sendMessage(chat_id,text=rn8p,reply_markup=Rn8p)
+        bot.sendMessage(chat_id,text=rn8p,reply_markup=Redmi)
 
     elif text == 'Redmi note 9':
-        bot.sendMessage(chat_id,text=rn9,reply_markup=Rn9)
+        bot.sendMessage(chat_id,text=rn9,reply_markup=Redmi)
     
     elif text == 'Redmi note 9 pro':
-        bot.sendMessage(chat_id,text=rn9p,reply_markup=Rn9p)
+        bot.sendMessage(chat_id,text=rn9p,reply_markup=Redmi)
 
     elif text == "Buyurtma berish":
         bot.sendMessage(chat_id,text='Kechirasiz hozircha dastafkamiz ishlamiyapti!',reply_markup=admin)
@@ -248,7 +188,7 @@ def hello(update, context):
         bot.sendMessage(chat_id,text='https://t.me/JalilovJavohir',reply_markup=admin)
     
     elif text == 'O`zingiz haqingizda malumot':
-        bot.sendMessage(chat_id,text='Contact yuborish',reply_markup=keyboard)
+        bot.sendMessage(chat_id,text='Contact and Location',reply_markup=keyboard)
 
 def start(update,context):
 
@@ -261,39 +201,36 @@ def start(update,context):
             ['Samsung'],
             ['Xiomi']
         ],
-        resize_keyboard=True)
+        resize_keyboard=True
+    )
+    bot.sendMessage(chat_id,text='Telefon bozoriga hush kelibsiz! Turini tanlang: Samsung va Xiomi 👇🏻',reply_markup=button)
 
 def get_contact(update,context):
-
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
 
     number = update.message.contact.phone_number
-    firstname = update.message.contact.first_name
+    firsname = update.message.contact.first_name
 
-    bot.sendContact('1046157991',phone_numbe=number)
-        
+    bot.sendContact(1046157991,phone_number= number,first_name=firsname)
 
 def get_location(update,context):
-
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
 
     location = update.message.location
 
-    bot.sendLocation('1046157991',location=location)
-    
-    
-updater = Updater(token='1391170757:AAFlwFdRBaE-Io72LpLKXMN1KmjXlcLfedo',use_context=True)
+    bot.sendLocation(1046157991,location=location)
+
+updater = Updater(token='1114424170:AAHakbVTr7nzgj6hOTSr9OrhTyaaLkunmd8',use_context=True)
 
 updater.dispatcher.add_handler(CommandHandler('start',start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text,hello))
 
 updater.dispatcher.add_handler(MessageHandler(Filters.contact,get_contact))
 updater.dispatcher.add_handler(MessageHandler(Filters.location,get_location))
-
 
 updater.start_polling()
 updater.idle()
