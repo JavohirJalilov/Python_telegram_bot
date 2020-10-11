@@ -1,5 +1,5 @@
 from telegram.ext import Updater, CommandHandler,MessageHandler,Filters
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup,ReplyKeyboardMarkup,ReplyMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup,ReplyKeyboardMarkup,ReplyMarkup,KeyboardButton
 import telegram
 def hello(update, context):
     print(1)
@@ -158,10 +158,28 @@ def hello(update, context):
 
     admin = ReplyKeyboardMarkup(
         [
+            ['O`zingiz haqingizda malumot'],
             ["Admin bilan bog`lanish"],
             ['Bosh Menuga qaytish']
         ],
         resize_keyboard=True)
+
+    contact = KeyboardButton(
+        text='Contact',
+        request_contact=True
+    )
+    location = KeyboardButton(
+        text='Location',
+        request_location=True
+    )
+
+    keyboard = ReplyKeyboardMarkup(
+        [
+            [contact],
+            [location]
+        ]
+    )
+
     
     if text == 'Samsung':
         bot.sendMessage(chat_id,text='Tanlang 👇🏻',reply_markup=Samsung_tur)
@@ -228,6 +246,9 @@ def hello(update, context):
 
     elif text == "Admin bilan bog`lanish":
         bot.sendMessage(chat_id,text='https://t.me/JalilovJavohir',reply_markup=admin)
+    
+    elif text == 'O`zingiz haqingizda malumot':
+        bot.sendMessage(chat_id,text='Contact yuborish',reply_markup=keyboard)
 
 def start(update,context):
 
@@ -242,13 +263,37 @@ def start(update,context):
         ],
         resize_keyboard=True)
 
-    bot.sendMessage(chat_id,text='Telefon bozoriga hush kelibsiz! Turini tanlang: Samsung, Xiomi 👇🏻',reply_markup=button)
+def get_contact(update,context):
+
+    bot = context.bot
+    text = update.message.text
+    chat_id = update.message.chat.id
+
+    number = update.message.contact.phone_number
+    firstname = update.message.contact.first_name
+
+    bot.sendContact('1046157991',phone_numbe=number)
+        
+
+def get_location(update,context):
+
+    bot = context.bot
+    text = update.message.text
+    chat_id = update.message.chat.id
+
+    location = update.message.location
+
+    bot.sendLocation('1046157991',location=location)
     
     
-updater = Updater(token='1114424170:AAHakbVTr7nzgj6hOTSr9OrhTyaaLkunmd8',use_context=True)
+updater = Updater(token='1391170757:AAFlwFdRBaE-Io72LpLKXMN1KmjXlcLfedo',use_context=True)
 
 updater.dispatcher.add_handler(CommandHandler('start',start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text,hello))
+
+updater.dispatcher.add_handler(MessageHandler(Filters.contact,get_contact))
+updater.dispatcher.add_handler(MessageHandler(Filters.location,get_location))
+
 
 updater.start_polling()
 updater.idle()
