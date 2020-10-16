@@ -60,7 +60,6 @@ def get_location(update,context):
     location = update.message.location
     bot.sendLocation(1046157991,location=location)
 
-
     pyload = {
         'lat':latitude,
         'lon':longitude,
@@ -68,15 +67,54 @@ def get_location(update,context):
         'appid':KEY
     }
     response = requests.get('https://api.openweathermap.org/data/2.5/weather',params=pyload)
-    data = response.json()
-    
-    joy = data['name']
-    temp = data['main']['temp']
-    descr = data['weather'][0]['description']
-    wind = data['wind']['speed']
-    all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
-    bot.sendMessage(chat_id,text=all_)
+    if response:
+        data = response.json()
+        joy = data['name']
+        temp = data['main']['temp']
+        descr = data['weather'][0]['description']
+        wind = data['wind']['speed']
+        icon = data['weather'][0]['icon']
+        pprint(data)
 
+        if icon=='01d' or icon=='01n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° ☀'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+
+        if icon=='02d' or icon=='02n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° 🌤'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+    
+        if icon=='03d' or icon=='03n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° 🌥'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+ 
+        if icon=='04d' or icon=='04n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° ☁️'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+       
+        if icon=='09d' or icon=='09n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° 🌦'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+        
+        if icon=='10d' or icon=='10n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° 🌧'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+       
+        if icon=='11d' or icon=='11n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° 🌩'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+        
+        if icon=='13d' or icon=='13n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° ❄️'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+  
+        if icon=='50d' or icon=='50n':
+            all_ = 'from: '+str(joy)+'\nTemp: '+str(temp)+'° 🌫'+'\ndescription: '+str(descr)+'\nWind: '+str(wind)+" m/s"
+            bot.sendMessage(chat_id,text=all_)
+
+        
+    else:
+        bot.sendMessage(chat_id,text='None')
 
 updater = Updater(token=TOKEN,use_context=True)
 
