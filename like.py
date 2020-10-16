@@ -65,7 +65,10 @@ def inline1(update, context):
     print(like,dislike)
     query.edit_message_text(f'thank you very much!', reply_markup=reply_markup)
     data = query.data
-    query.answer('GOOD!')
+    query.answer(
+        text='🤨😊😁😂',
+        show_alert=True
+    )
 
 
 updater = Updater(TOKEN)
