@@ -176,7 +176,9 @@ def hello(update, context):
         bot.sendMessage(chat_id,text=rn8p,reply_markup=Redmi)
 
     elif text == 'Redmi note 9':
-        bot.sendMessage(chat_id,text=rn9,reply_markup=Redmi)
+        file_id = 'AgACAgIAAxkBAAIBwl-FYSs6GWAwD6YvT9H9H8_oH5YDAAJzrzEbgAcoSHs_eiEoSoG0QWkYlS4AAwEAAwIAA3kAA8A4BQABGwQ'
+        bot.sendPhoto(chat_id,photo=file_id,caption=rn9)
+        #bot.sendMessage(chat_id,text="Redmi note 9",reply_markup=Redmi)
     
     elif text == 'Redmi note 9 pro':
         bot.sendMessage(chat_id,text=rn9p,reply_markup=Redmi)
@@ -219,9 +221,10 @@ def get_location(update,context):
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
-
+    first_name = update.message.chat.first_name
     location = update.message.location
-
+    
+    bot.sendMessage(chat_id,text=first_name)
     bot.sendLocation(1046157991,location=location)
 
 updater = Updater(token='1114424170:AAHakbVTr7nzgj6hOTSr9OrhTyaaLkunmd8',use_context=True)

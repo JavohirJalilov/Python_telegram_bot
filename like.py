@@ -111,29 +111,7 @@ def mobile(update,context):
         text='🤨😊😁😂'
     )
 
-def back(update,context):
 
-    query = update.callback_query
-    
-    button1 = InlineKeyboardButton(
-        text='Like and Dislike',
-        callback_data='like_dislike'
-    )
-    button2 = InlineKeyboardButton(
-        text='Mobile and desctop',
-        callback_data='Telegram_desctop'
-    )
-    reply_markup = InlineKeyboardMarkup(
-        inline_keyboard=[
-            [button1,button2]
-        ]
-    )
-
-    query.edit_message_text('Like, dislike and Mobile, desctop',reply_markup=reply_markup)
-    data = query.data
-    query.answer(
-        text='🤨😊😁😂'
-    )
 updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('help', help_bot))
 updater.dispatcher.add_handler(CommandHandler('start', start))

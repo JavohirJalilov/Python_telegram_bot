@@ -22,8 +22,8 @@ def hello(update, context):
     tur = s[x:y]
 
     if tur == 'Исм маъносини топиш учун буюртма бериш':
-        mano = 'Afsus, Bunday ism hozircha birda mavjud emas'
-        bot.sendMessage(chat_id=chat_id,text=mano) 
+        mano = 'Afsus, Bunday ism hozircha bizda mavjud emas'
+        update.message.reply_text(text=mano) 
     else:
         i = s.index('class="text-size-5"')
         l = s.index('</p>',i)
@@ -35,7 +35,7 @@ def hello(update, context):
         tur = s[k:j]
 
         mano = s[i:l]
-    update.message.reply_text(text=tur+'\n'+mano)
+        update.message.reply_text(text=tur+'\n'+mano)
 
     
 
