@@ -21,11 +21,15 @@ def start(update,context):
 def admin(update,context):
     query = update.callback_query
     text='Admin bilan bog`lanish:'
-    andmin = KeyboardButton(text='Admin ',callback_data='viloyat')
-    reply_markup = InlineKeyboardMarkup(
+    admin = KeyboardButton(text='Admin 🙎🏻‍♂️')
+    orqaga = KeyboardButton(text='⏪⏪')
+    reply_markup = ReplyKeyboardMarkup(
         [
-            [Samarqand]
-        ]
+            [admin],
+            [orqaga]
+
+        ],
+        resize_keyboard=True
     )
     update.message.reply_text(text=text,reply_markup=reply_markup)
 
