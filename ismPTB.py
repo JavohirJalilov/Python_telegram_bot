@@ -13,6 +13,7 @@ def hello(update, context):
     bot = context.bot
     text = update.message.text
     res = requests.get(f'https://ismlar.com/search/{text}')
+    print(res.status_code)
     s = res.text
     
     x = s.index('class="mb-3"')
@@ -33,18 +34,14 @@ def hello(update, context):
         j = s.index('</a>',k)
         k+=23
         tur = s[k:j]
-
         mano = s[i:l]
-        update.message.reply_text(text=tur+'\n'+mano)
-
-    
+        text=f'<u><i>{tur}</i></u>'+'\n'+mano
+        update.message.reply_text(text=f'<b>{text}</b>',parse_mode='HTML')
 
 updater = Updater(token=TOKEN,use_context=True)
 
 updater.dispatcher.add_handler(CommandHandler('start',start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text,hello))
-
-
 
 updater.start_polling()
 updater.idle()

@@ -8,7 +8,7 @@ TOKEN = os.environ['tezmenu']
 def start(update,context):
     text = 'TezMenu botimizga hush kelibsiz.\n\nSiz endi o`zingizga yoqqan maxsulotni buyurtma berishingiz mumkin. 🚚 \nUndan tashqari siz o`z buyurtmangizni qo`shishingiz mumkin.! ➕📝'
     tezmenu = KeyboardButton(text='TezMenu 🗓')
-    dastafka = KeyboardButton(text='buyurtma ➕')
+    dastafka = KeyboardButton(text='Buyurtma qo`shish ➕')
 
     reply_markup = ReplyKeyboardMarkup(
         [
@@ -18,46 +18,16 @@ def start(update,context):
         resize_keyboard=True
     )
     update.message.reply_text(text=text,reply_markup=reply_markup)
-def add(update,context):
+def admin(update,context):
     query = update.callback_query
-    text='Hudud tanlash: 📍'
-    Samarqand = InlineKeyboardButton(text='Samarqand',callback_data='viloyat')
+    text='Admin bilan bog`lanish:'
+    andmin = KeyboardButton(text='Admin ',callback_data='viloyat')
     reply_markup = InlineKeyboardMarkup(
         [
             [Samarqand]
         ]
     )
     update.message.reply_text(text=text,reply_markup=reply_markup)
-
-def tuman(update,context):
-    query = update.callback_query
-    text='Tuman tanlang: 📍'
-    Bulungur = InlineKeyboardButton(text='Bulung`ur',callback_data='tuman')
-    reply_markup = InlineKeyboardMarkup(
-        [
-            [Bulungur]
-        ]
-    )
-    query.edit_message_text(text=text,reply_markup=reply_markup)
-    query.answer(text='Loading...')
-
-def tur(update,context):
-    query = update.callback_query
-    text='Buyurtmangiz turini tanlang:'
-    milliy = InlineKeyboardButton(text='Milliy taomlar',callback_data='tur')
-    fastfood = InlineKeyboardButton(text='Fast-food',callback_data='tur')
-    reply_markup = InlineKeyboardMarkup(
-        [
-            [milliy],
-            [fastfood]
-        ]
-    )
-    query.edit_message_text(text=text,reply_markup=reply_markup)
-    query.answer(text='Loading...')
-def nom(update,context):
-    query = update.callback_query
-    text = 'oshxona nomini kiriting:'
-    query.edit_message_text(text=text)
 
 def tezmenu(update,context):
     milliy = KeyboardButton(text = 'Milliy Taomlar 🍛')
@@ -144,11 +114,8 @@ updater = Updater(token=TOKEN,use_context=True)
 updater.dispatcher.add_handler(CommandHandler('start',start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('TezMenu 🗓'),tezmenu))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('⏪'),tezmenu))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('buyurtma ➕'),add))
-updater.dispatcher.add_handler(CallbackQueryHandler(tuman,pattern='viloyat'))
-updater.dispatcher.add_handler(CallbackQueryHandler(tur,pattern='tuman'))
-updater.dispatcher.add_handler(CallbackQueryHandler(nom,pattern='tur'))
-updater.dispatcher.add_handler(CallbackQueryHandler(tur,pattern='tuman'))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Buyurtma qo`shish ➕'),admin))
+
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text('Milliy Taomlar 🍛'),Mhudud))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('Fast-food 🍔'),Fhudud))
