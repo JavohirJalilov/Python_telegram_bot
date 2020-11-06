@@ -1306,10 +1306,6 @@ def week(data,response):
         else:
             return 'None'
     
-    
-
-    
-
 
 updater = Updater(token='1495856262:AAHH_kr8rzuHThwRXec5yEPQkJWNloSt6sQ')
 updater.dispatcher.add_handler(CommandHandler('start',start))
