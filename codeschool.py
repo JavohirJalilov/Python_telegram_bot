@@ -1,17 +1,13 @@
-coffe_1 = 'shirin'
-coffe_2 = 'achchiq'
+def say_hello(name):
+    return f"Hello {name}"
 
-name = input('ismingiz: ')
-sorov = input('Coffee ichasizmi: ')
+def be_awesome(name):
+    return f"Yo {name}, together we are the awesomest!"
 
-if sorov == 'ha' or sorov == 'Ha' or sorov == 'Ha albatta':
-    coffee_tur = input(f'{name} qanday coffee ichasiz: ')
-    if coffee_tur == coffe_1 or coffee_tur == coffe_2:
-        if coffee_tur == coffe_1:
-            print(f'{name} sizning {coffe_1} coffe buyurtmangizni 5 minutda tayyorlab beramiz !')
-        else:
-            print(f'{name} sizning {coffe_2} coffe buyurtmangizni 5 minutda tayyorlab beramiz !')
-    else:
-        print(f'{name}, kechirasiz bizda bunday turdagi coffee mavjud emas.')
-else:
-    print(f'Kechirasiz, {name} biz faqat coffee tayyorlaymiz.')
+def greet_bob(greeter_func):
+    return greeter_func("Bob")
+
+
+x = greet_bob(be_awesome)
+
+print(x)
